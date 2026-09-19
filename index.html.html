@@ -1,471 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>GameHub</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            background: #09090d;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        /* TOP NAVIGATION */
-
-        nav {
-            height: 70px;
-            background: rgba(15, 15, 22, 0.95);
-            border-bottom: 1px solid #292933;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 6%;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #7c5cff;
-        }
-
-        nav a {
-            color: #aaa;
-            text-decoration: none;
-            margin-left: 25px;
-        }
-
-        nav a:hover {
-            color: white;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 360px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 50px 20px;
-
-            background:
-                radial-gradient(circle at center, #28204c 0%, #11111a 45%, #09090d 75%);
-        }
-
-        .hero h1 {
-            font-size: clamp(45px, 7vw, 80px);
-            margin: 0;
-            background: linear-gradient(90deg, #ffffff, #9c7cff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            color: #aaa;
-            font-size: 18px;
-            max-width: 600px;
-        }
-
-        /* SEARCH */
-
-        .search-box {
-            width: min(650px, 90%);
-            margin-top: 25px;
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 18px 22px;
-            border-radius: 15px;
-            border: 1px solid #33333f;
-            background: #17171f;
-            color: white;
-            font-size: 17px;
-            outline: none;
-        }
-
-        .search-box input:focus {
-            border-color: #7c5cff;
-        }
-
-        /* MAIN */
-
-        main {
-            width: 90%;
-            max-width: 1300px;
-            margin: auto;
-            padding: 45px 0;
-        }
-
-        .section-title {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .section-title h2 {
-            font-size: 28px;
-            margin: 0;
-        }
-
-        .section-title span {
-            color: #777;
-        }
-
-        /* GAME GRID */
-
-        .games {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 22px;
-            margin-bottom: 60px;
-        }
-
-        /* CARD */
-
-        .game {
-            background: #15151c;
-            border: 1px solid #292933;
-            border-radius: 18px;
-            padding: 22px;
-            transition: 0.25s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .game::before {
-            content: "";
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            background: #7c5cff;
-            filter: blur(70px);
-            opacity: 0;
-            right: -40px;
-            top: -40px;
-            transition: 0.25s;
-        }
-
-        .game:hover {
-            transform: translateY(-7px);
-            border-color: #7c5cff;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .game:hover::before {
-            opacity: 0.35;
-        }
-
-        .icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
-            background: linear-gradient(135deg, #292943, #181821);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            margin-bottom: 18px;
-        }
-
-        .game h3 {
-            margin: 0 0 8px;
-            font-size: 21px;
-        }
-
-        .game p {
-            color: #888;
-            line-height: 1.5;
-            min-height: 45px;
-        }
-
-        .play {
-            width: 100%;
-            margin-top: 15px;
-            padding: 12px;
-            border: none;
-            border-radius: 10px;
-            background: #7c5cff;
-            color: white;
-            font-size: 15px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .play:hover {
-            background: #6847e8;
-            transform: scale(1.02);
-        }
-
-        /* FOOTER */
-
-        footer {
-            border-top: 1px solid #292933;
-            text-align: center;
-            padding: 35px;
-            color: #666;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 600px) {
-            nav {
-                padding: 0 20px;
-            }
-
-            nav a {
-                display: none;
-            }
-
-            main {
-                width: 92%;
-            }
-
-            .games {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<!-- NAVIGATION -->
-
-<nav>
-    <div class="logo">🎮 <span>Game</span>Hub</div>
-
-    <div>
-        <a href="#games">Games</a>
-        <a href="#useless">Useless</a>
-    </div>
-</nav>
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-    <h1>GameHub</h1>
-
-    <p>
-        Games, weird websites, and random internet stuff.
-        Everything in one place.
-    </p>
-
-    <div class="search-box">
-        <input
-            type="text"
-            id="search"
-            placeholder="🔎 Search websites..."
-            onkeyup="searchGames()"
-        >
-    </div>
-
-</section>
-
-
-<main>
+<div class="games">
 
     <!-- GAME WEBSITES -->
 
-    <div class="section-title" id="games">
-        <h2>🎮 Game Websites</h2>
-        <span>9 websites</span>
+    <div class="game">
+        <h2>CrazyGames</h2>
+        <p>Thousands of browser games.</p>
+        <button onclick="window.open('https://www.crazygames.com', '_blank')">Play</button>
     </div>
 
-    <div class="games">
+    <div class="game">
+        <h2>Poki</h2>
+        <p>Free browser games.</p>
+        <button onclick="window.open('https://poki.com', '_blank')">Play</button>
+    </div>
 
-        <div class="game">
-            <div class="icon">🎮</div>
-            <h3>CrazyGames</h3>
-            <p>Thousands of browser games.</p>
-            <button class="play" onclick="openSite('https://www.crazygames.com')">PLAY</button>
-        </div>
+    <div class="game">
+        <h2>Coolmath Games</h2>
+        <p>Puzzles, strategy and arcade games.</p>
+        <button onclick="window.open('https://www.coolmathgames.com', '_blank')">Play</button>
+    </div>
 
-        <div class="game">
-            <div class="icon">🕹️</div>
-            <h3>Poki</h3>
-            <p>Free browser games.</p>
-            <button class="play" onclick="openSite('https://poki.com')">PLAY</button>
-        </div>
+    <div class="game">
+        <h2>Scratch</h2>
+        <p>Make and play community games.</p>
+        <button onclick="window.open('https://scratch.mit.edu', '_blank')">Play</button>
+    </div>
 
-        <div class="game">
-            <div class="icon">🧠</div>
-            <h3>Coolmath Games</h3>
-            <p>Puzzles, strategy and arcade games.</p>
-            <button class="play" onclick="openSite('https://www.coolmathgames.com')">PLAY</button>
-        </div>
+    <div class="game">
+        <h2>MSN Games</h2>
+        <p>Games and entertainment.</p>
+        <button onclick="window.open('https://www.msn.com', '_blank')">Play</button>
+    </div>
 
-        <div class="game">
-            <div class="icon">🟠</div>
-            <h3>Scratch</h3>
-            <p>Create and play community games.</p>
-            <button class="play" onclick="openSite('https://scratch.mit.edu')">PLAY</button>
-        </div>
+    <div class="game">
+        <h2>Cool Unblocked Game</h2>
+        <p>Browser game collection.</p>
+        <button onclick="window.open('https://coolunblockedgame.com/', '_blank')">Play</button>
+    </div>
 
-        <div class="game">
-            <div class="icon">📰</div>
-            <h3>MSN</h3>
-            <p>Games and entertainment.</p>
-            <button class="play" onclick="openSite('https://www.msn.com')">OPEN</button>
-        </div>
+    <div class="game">
+        <h2>Kongregate</h2>
+        <p>Online games and community.</p>
+        <button onclick="window.open('https://www.kongregate.com', '_blank')">Play</button>
+    </div>
 
-        <div class="game">
-            <div class="icon">🎯</div>
-            <h3>Cool Unblocked Game</h3>
-            <p>Browser game collection.</p>
-            <button class="play" onclick="openSite('https://coolunblockedgame.com/')">PLAY</button>
-        </div>
+    <div class="game">
+        <h2>Hooda Math</h2>
+        <p>Math, puzzle and escape games.</p>
+        <button onclick="window.open('https://www.hoodamath.com', '_blank')">Play</button>
+    </div>
 
-        <div class="game">
-            <div class="icon">👾</div>
-            <h3>Kongregate</h3>
-            <p>Online games and community.</p>
-            <button class="play" onclick="openSite('https://www.kongregate.com')">PLAY</button>
-        </div>
-
-        <div class="game">
-            <div class="icon">➗</div>
-            <h3>Hooda Math</h3>
-            <p>Math, puzzle and escape games.</p>
-            <button class="play" onclick="openSite('https://www.hoodamath.com')">PLAY</button>
-        </div>
-
-        <div class="game">
-            <div class="icon">☁️</div>
-            <h3>now.gg</h3>
-            <p>Browser-based game streaming.</p>
-            <button class="play" onclick="openSite('https://now.gg')">PLAY</button>
-        </div>
-
+    <div class="game">
+        <h2>now.gg</h2>
+        <p>Browser-based game streaming.</p>
+        <button onclick="window.open('https://now.gg', '_blank')">Play</button>
     </div>
 
 
     <!-- USELESS INTERNET -->
 
-    <div class="section-title" id="useless">
-        <h2>🗿 Useless Internet</h2>
-        <span>8 websites</span>
+    <div class="game">
+        <h2>🐟 Eel Slap</h2>
+        <p>Slap a man with a fish. That's literally it.</p>
+        <button onclick="window.open('https://eelslap.com', '_blank')">WHY?</button>
     </div>
 
-    <div class="games">
-
-        <div class="game">
-            <div class="icon">🐟</div>
-            <h3>Eel Slap</h3>
-            <p>Slap a man with a fish. That's literally it.</p>
-            <button class="play" onclick="openSite('https://eelslap.com')">WHY?</button>
-        </div>
-
-        <div class="game">
-            <div class="icon">🍪</div>
-            <h3>Cookie Clicker</h3>
-            <p>Click cookies until your life has meaning.</p>
-            <button class="play" onclick="openSite('https://orteil.dashnet.org/cookieclicker/')">CLICK</button>
-        </div>
-
-        <div class="game">
-            <div class="icon">👉</div>
-            <h3>Pointer Pointer</h3>
-            <p>Move your mouse. Someone points at it.</p>
-            <button class="play" onclick="openSite('https://pointerpointer.com')">WHY?</button>
-        </div>
-
-        <div class="game">
-            <div class="icon">💻</div>
-            <h3>Hacker Typer</h3>
-            <p>Press random keys and pretend you're hacking.</p>
-            <button class="play" onclick="openSite('https://hackertyper.com')">HACK</button>
-        </div>
-
-        <div class="game">
-            <div class="icon">🌎</div>
-            <h3>Zombo</h3>
-            <p>Welcome to Zombo. You can do anything here.</p>
-            <button class="play" onclick="openSite('https://zombo.com')">ENTER</button>
-        </div>
-
-        <div class="game">
-            <div class="icon">👍</div>
-            <h3>Make Everything OK</h3>
-            <p>Press a button. Fix absolutely nothing.</p>
-            <button class="play" onclick="openSite('https://make-everything-ok.com')">FIX IT</button>
-        </div>
-
-        <div class="game">
-            <div class="icon">📎</div>
-            <h3>Universal Paperclips</h3>
-            <p>Make paperclips. Eventually control everything.</p>
-            <button class="play" onclick="openSite('https://www.decisionproblem.com/paperclips/')">PLAY</button>
-        </div>
-
-        <div class="game">
-            <div class="icon">🐄</div>
-            <h3>Find the Cow</h3>
-            <p>Move your mouse around and find the cow.</p>
-            <button class="play" onclick="openSite('https://findtheinvisiblecow.com')">FIND IT</button>
-        </div>
-
+    <div class="game">
+        <h2>🍪 Cookie Clicker</h2>
+        <p>Click a cookie until your life has meaning.</p>
+        <button onclick="window.open('https://orteil.dashnet.org/cookieclicker/', '_blank')">CLICK</button>
     </div>
 
-</main>
+    <div class="game">
+        <h2>👉 Pointer Pointer</h2>
+        <p>Move your mouse. Someone points at it.</p>
+        <button onclick="window.open('https://pointerpointer.com', '_blank')">WHY?</button>
+    </div>
 
+    <div class="game">
+        <h2>💻 Hacker Typer</h2>
+        <p>Press random keys and pretend you're hacking.</p>
+        <button onclick="window.open('https://hackertyper.com', '_blank')">HACK</button>
+    </div>
 
-<footer>
-    🎮 GameHub — The internet's weirdest game collection
-</footer>
+    <div class="game">
+        <h2>🌎 Zombo</h2>
+        <p>Welcome to Zombo. You can do anything here.</p>
+        <button onclick="window.open('https://zombo.com', '_blank')">ENTER</button>
+    </div>
 
+    <div class="game">
+        <h2>👍 Make Everything OK</h2>
+        <p>Press a button. Fix absolutely nothing.</p>
+        <button onclick="window.open('https://make-everything-ok.com', '_blank')">FIX IT</button>
+    </div>
 
-<script>
+    <div class="game">
+        <h2>📎 Universal Paperclips</h2>
+        <p>Make paperclips. Eventually control everything.</p>
+        <button onclick="window.open('https://www.decisionproblem.com/paperclips/', '_blank')">PLAY</button>
+    </div>
 
-    function openSite(url) {
-        window.open(url, "_blank");
-    }
+    <div class="game">
+        <h2>🐄 Find the Cow</h2>
+        <p>Move your mouse around and find the cow.</p>
+        <button onclick="window.open('https://findtheinvisiblecow.com', '_blank')">FIND IT</button>
+    </div>
 
-    function searchGames() {
-
-        let input = document
-            .getElementById("search")
-            .value
-            .toLowerCase();
-
-        let games = document.querySelectorAll(".game");
-
-        games.forEach(function(game) {
-
-            let name = game
-                .innerText
-                .toLowerCase();
-
-            if (name.includes(input)) {
-                game.style.display = "";
-            } else {
-                game.style.display = "none";
-            }
-
-        });
-    }
-
-</script>
-
-</body>
-</html>
+</div>
