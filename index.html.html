@@ -1,144 +1,110 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>GameHub</title>
-
-    <style>
-        body {
-            margin: 0;
-            background: #101014;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
-
-        header {
-            background: #19191f;
-            padding: 30px;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 45px;
-            margin: 0;
-        }
-
-        header p {
-            color: #aaa;
-        }
-
-        .search {
-            text-align: center;
-            padding: 30px;
-        }
-
-        .search input {
-            width: 60%;
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-        }
-
-        .games {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            padding: 30px;
-        }
-
-        .game {
-            background: #1c1c23;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .game h2 {
-            margin-bottom: 15px;
-        }
-
-        .game p {
-            color: #aaa;
-        }
-
-        .game button {
-            background: #5865f2;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .game button:hover {
-            background: #4752c4;
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <h1>🎮 GameHub</h1>
-    <p>All your favorite game websites in one place</p>
-</header>
-
-<div class="search">
-    <input type="text" placeholder="🔎 Search for a game website...">
-</div>
-
 <div class="games">
+
+    <!-- GAME WEBSITES -->
 
     <div class="game">
         <h2>CrazyGames</h2>
-        <p>Play thousands of browser games.</p>
-        <button onclick="window.open('https://www.crazygames.com', '_blank')">
-            Play
-        </button>
+        <p>Thousands of browser games.</p>
+        <button onclick="window.open('https://www.crazygames.com', '_blank')">Play</button>
     </div>
 
     <div class="game">
         <h2>Poki</h2>
-        <p>Play free online games.</p>
-        <button onclick="window.open('https://poki.com', '_blank')">
-            Play
-        </button>
+        <p>Free browser games.</p>
+        <button onclick="window.open('https://poki.com', '_blank')">Play</button>
     </div>
 
     <div class="game">
         <h2>Coolmath Games</h2>
-        <p>Games, puzzles and more.</p>
-        <button onclick="window.open('https://www.coolmathgames.com', '_blank')">
-            Play
-        </button>
-    </div>
-
-    <div class="game">
-        <h2>MSN</h2>
-        <p>Games and entertainment from MSN.</p>
-        <button onclick="window.open('https://www.msn.com', '_blank')">
-            Play
-        </button>
-    </div>
-
-    <div class="game">
-        <h2>Cool Unblocked Games</h2>
-        <p>Play browser games online.</p>
-        <button onclick="window.open('https://coolunblockedgame.com/', '_blank')">
-            Play
-        </button>
+        <p>Puzzles, strategy and arcade games.</p>
+        <button onclick="window.open('https://www.coolmathgames.com', '_blank')">Play</button>
     </div>
 
     <div class="game">
         <h2>Scratch</h2>
-        <p>Create and play games made with Scratch.</p>
-        <button onclick="window.open('https://scratch.mit.edu/', '_blank')">
-            Play
-        </button>
+        <p>Make and play community games.</p>
+        <button onclick="window.open('https://scratch.mit.edu', '_blank')">Play</button>
+    </div>
+
+    <div class="game">
+        <h2>MSN Games</h2>
+        <p>Games and entertainment.</p>
+        <button onclick="window.open('https://www.msn.com', '_blank')">Play</button>
+    </div>
+
+    <div class="game">
+        <h2>Cool Unblocked Game</h2>
+        <p>Browser game collection.</p>
+        <button onclick="window.open('https://coolunblockedgame.com/', '_blank')">Play</button>
+    </div>
+
+    <div class="game">
+        <h2>Kongregate</h2>
+        <p>Online games and community.</p>
+        <button onclick="window.open('https://www.kongregate.com', '_blank')">Play</button>
+    </div>
+
+    <div class="game">
+        <h2>Hooda Math</h2>
+        <p>Math, puzzle and escape games.</p>
+        <button onclick="window.open('https://www.hoodamath.com', '_blank')">Play</button>
+    </div>
+
+    <div class="game">
+        <h2>now.gg</h2>
+        <p>Browser-based game streaming.</p>
+        <button onclick="window.open('https://now.gg', '_blank')">Play</button>
+    </div>
+
+
+    <!-- USELESS INTERNET -->
+
+    <div class="game">
+        <h2>🐟 Eel Slap</h2>
+        <p>Slap a man with a fish. That's literally it.</p>
+        <button onclick="window.open('https://eelslap.com', '_blank')">WHY?</button>
+    </div>
+
+    <div class="game">
+        <h2>🍪 Cookie Clicker</h2>
+        <p>Click a cookie until your life has meaning.</p>
+        <button onclick="window.open('https://orteil.dashnet.org/cookieclicker/', '_blank')">CLICK</button>
+    </div>
+
+    <div class="game">
+        <h2>👉 Pointer Pointer</h2>
+        <p>Move your mouse. Someone points at it.</p>
+        <button onclick="window.open('https://pointerpointer.com', '_blank')">WHY?</button>
+    </div>
+
+    <div class="game">
+        <h2>💻 Hacker Typer</h2>
+        <p>Press random keys and pretend you're hacking.</p>
+        <button onclick="window.open('https://hackertyper.com', '_blank')">HACK</button>
+    </div>
+
+    <div class="game">
+        <h2>🌎 Zombo</h2>
+        <p>Welcome to Zombo. You can do anything here.</p>
+        <button onclick="window.open('https://zombo.com', '_blank')">ENTER</button>
+    </div>
+
+    <div class="game">
+        <h2>👍 Make Everything OK</h2>
+        <p>Press a button. Fix absolutely nothing.</p>
+        <button onclick="window.open('https://make-everything-ok.com', '_blank')">FIX IT</button>
+    </div>
+
+    <div class="game">
+        <h2>📎 Universal Paperclips</h2>
+        <p>Make paperclips. Eventually control everything.</p>
+        <button onclick="window.open('https://www.decisionproblem.com/paperclips/', '_blank')">PLAY</button>
+    </div>
+
+    <div class="game">
+        <h2>🐄 Find the Cow</h2>
+        <p>Move your mouse around and find the cow.</p>
+        <button onclick="window.open('https://findtheinvisiblecow.com', '_blank')">FIND IT</button>
     </div>
 
 </div>
-
-</body>
-</html>
