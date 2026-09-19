@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GameHub</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #101014;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #19191f;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 45px;
+            margin: 0;
+        }
+
+        header p {
+            color: #aaa;
+        }
+
+        .search {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .search input {
+            width: 60%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        .games {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .game {
+            background: #1c1c23;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .game h2 {
+            margin-bottom: 15px;
+        }
+
+        .game button {
+            background: #5865f2;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .game button:hover {
+            background: #4752c4;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎮 GameHub</h1>
+    <p>All your favorite game websites in one place</p>
+</header>
+
+<div class="search">
+    <input type="text" placeholder="🔎 Search for a game website...">
+</div>
+
+<div class="games">
+
+    <div class="game">
+        <h2>CrazyGames</h2>
+        <p>Play thousands of browser games.</p>
+        <button onclick="window.open('https://www.crazygames.com', '_blank')">
+            Play
+        </button>
+    </div>
+
+    <div class="game">
+        <h2>Poki</h2>
+        <p>Play free online games.</p>
+        <button onclick="window.open('https://poki.com', '_blank')">
+            Play
+        </button>
+    </div>
+
+    <div class="game">
+        <h2>Coolmath Games</h2>
+        <p>Games, puzzles and more.</p>
+        <button onclick="window.open('https://www.coolmathgames.com', '_blank')">
+            Play
+        </button>
+    </div>
+
+    <div class="game">
+        <h2>MSN</h2>
+        <p>Games and entertainment from MSN.</p>
+        <button onclick="window.open('https://www.msn.com', '_blank')">
+            Play
+        </button>
+    </div>
+
+    <div class="game">
+        <h2>Cool Unblocked Games</h2>
+        <p>Play browser games online.</p>
+        <button onclick="window.open('https://coolunblockedgame.com/', '_blank')">
+            Play
+        </button>
+    </div>
+
+    <div class="game">
+        <h2>Scratch</h2>
+        <p>Create and play games made with Scratch.</p>
+        <button onclick="window.open('https://scratch.mit.edu/', '_blank')">
+            Play
+        </button>
+    </div>
+
+</div>
